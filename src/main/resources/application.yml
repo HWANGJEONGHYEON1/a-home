@@ -23,3 +23,8 @@ decorator:
   datasource:
     p6spy:
       enable-logging: off
+
+jwt:
+  header: Authorization
+  secret: ZGlmZmljdWx0LWtleWRpZmZpY3VsdC1rZXlkaWZmaWN1bHQta2V5ZGlmZmljdWx0LWtleWRpZmZpY3VsdC1rZXlkaWZmaWN1bHQta2V5ZGlmZmljdWx0LWtleWRpZmZpY3VsdC1rZXlkaWZmaWN1bHQta2V5ZGlmZmljdWx0LWtleWRpZmZpY3VsdC1rZXkK # difficult-keydifficult-keydifficult-keydifficult-keydifficult-keydifficult-keydifficult-keydifficult-keydifficult-keydifficult-keydifficult-key
+  expire-time: 86400

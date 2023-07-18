@@ -20,6 +20,6 @@ public class LoginController {
     @Operation(summary = "로그인 API", description = "로그인 성공 시 세션 저장 합니다.", tags = { "LoginController Controller" })
     @PostMapping("/login")
     public ResponseObject<UserResponseDto> login(@RequestBody @Valid LoginRequestDto requestDto, HttpServletRequest request, HttpServletResponse response) {
-        return ResponseObject.toResponse(userService.loginUser(requestDto, request, response));
+        return ResponseObject.toResponse(userService.loginUser(requestDto, response));
     }
 }

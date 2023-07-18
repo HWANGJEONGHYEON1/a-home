@@ -74,21 +74,21 @@ class UserServiceTest {
     @Test
     @DisplayName("로그인 시 잘못된 아이디 입력")
     void login_exception() {
-        assertThatThrownBy(() -> userService.loginUser(new LoginRequestDto("invalid_id@a-bly.com", "123"), request, response))
+        assertThatThrownBy(() -> userService.loginUser(new LoginRequestDto("invalid_id@a-bly.com", "123"), response))
                 .isInstanceOf(BusinessException.class);
     }
 
     @Test
     @DisplayName("로그인 시 잘못된 패스워드 입력")
     void login_password_exception() {
-        assertThatThrownBy(() -> userService.loginUser(new LoginRequestDto("hhh@a-bly.com", "12333"), request, response))
+        assertThatThrownBy(() -> userService.loginUser(new LoginRequestDto("hhh@a-bly.com", "12333"), response))
                 .isInstanceOf(BusinessException.class);
     }
 
     @Test
     @DisplayName("정상 로그인 처리")
     void loginUser() {
-        UserResponseDto user = userService.loginUser(new LoginRequestDto("hhh@a-bly.com", "123456"), request, response);
+        UserResponseDto user = userService.loginUser(new LoginRequestDto("hhh@a-bly.com", "123456"), response);
         assertThat(user).isNotNull();
     }
 }
