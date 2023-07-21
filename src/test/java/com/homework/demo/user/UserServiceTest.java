@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -82,7 +83,7 @@ class UserServiceTest {
     @DisplayName("로그인 시 잘못된 패스워드 입력")
     void login_password_exception() {
         assertThatThrownBy(() -> userService.loginUser(new LoginRequestDto("hhh@a-bly.com", "12333"), response))
-                .isInstanceOf(BusinessException.class);
+                .isInstanceOf(BadCredentialsException.class);
     }
 
     @Test

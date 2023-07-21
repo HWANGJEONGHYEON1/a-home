@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -23,6 +24,6 @@ public interface WishRepository extends JpaRepository<Wish, Long> {
             + "AND wish.drawer.id = :drawerId "
             + "ORDER BY wish.id DESC")
     List<ProductDto> findProductDtosByUserIdAndDrawerId(
-            Long userId, Long drawerId,
+            @Param("userId") Long userId, @Param("drawerId") Long drawerId,
             Pageable pageable);
 }
